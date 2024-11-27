@@ -3,20 +3,16 @@ import {View, Text, StyleSheet, Image} from 'react-native';
 import AddButton from './add-button';
 
 interface IProductCardItem {
-  id: number;
   title: string;
   price: string;
-  category: string;
   description: string;
   image: string;
 }
 
 const ProductCardItem: FC<IProductCardItem> = ({
-  id,
   title,
   price,
   image,
-  category,
   description,
 }) => {
   return (

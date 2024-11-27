@@ -19,14 +19,12 @@ const ProductCard: FC<IProductCard> = ({data}) => {
   return (
     <SafeAreaView style={styles.main}>
       <View style={styles.container}>
-        {data?.map(({id, title, price, category, description, image}) => {
+        {data?.map(({id, title, price, description, image}) => {
           return (
             <ProductCardItem
               key={id}
-              id={id}
               title={title}
               price={price}
-              category={category}
               description={description}
               image={image}
             />

@@ -2,8 +2,6 @@ import {
   StyleSheet,
   TouchableOpacity,
   View,
-  ViewStyle,
-  StyleProp,
   TextInput,
   TextInputProps,
   Image,
