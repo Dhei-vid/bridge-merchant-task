@@ -16,8 +16,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignSelf: 'flex-end',
     borderRadius: 15,
-    height: 50,
-    width: 50,
+    height: 45,
+    width: 45,
   },
   addIcon: {
     textAlign: 'center',

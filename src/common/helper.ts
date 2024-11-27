@@ -1,6 +1,10 @@
 import axios from 'axios';
-import {IFilteredData} from './types';
 
+/**
+ * Generic axios function to get Async Data
+ * @param url
+ * @returns result
+ */
 export const axiosGetRequest = async (url: string) => {
   try {
     const result = await axios.get(url);
@@ -11,7 +15,12 @@ export const axiosGetRequest = async (url: string) => {
   }
 };
 
-// Filter products by title or description
+/**
+ * Filtering Products items by title & description
+ * @param products: IProducts
+ * @param query: string
+ * @returns Matching Products data
+ */
 export const filterProducts = (products: any[], query: string) => {
   if (!query.trim()) return products;
   return products.filter(
@@ -22,7 +31,12 @@ export const filterProducts = (products: any[], query: string) => {
   );
 };
 
-// Filter categories by name (or any array-specific field)
+/**
+ * Filtering Categories items
+ * @param categories: ICategory
+ * @param query: string
+ * @returns Matching Categories items
+ */
 export const filterCategories = (categories: any[], query: string) => {
   if (!query.trim()) return categories;
   return categories.filter(category =>

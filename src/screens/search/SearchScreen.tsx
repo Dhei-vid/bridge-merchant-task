@@ -40,6 +40,7 @@ const SearchScreen = () => {
   const [queryHistory, setQueryHistory] = useState<string[]>([]);
 
   useEffect(() => {
+    // fetching history from async storage
     const fetchHistory = async () => {
       const history = await getSearchHistory();
       setQueryHistory(history);
@@ -47,6 +48,7 @@ const SearchScreen = () => {
     fetchHistory();
   }, []);
 
+  // using debounce to delay function execution for better performance
   const handleSearch = debounce(async () => {
     if (query.trim() === '') return;
 
@@ -58,11 +60,13 @@ const SearchScreen = () => {
     setQuery('');
   }, 500);
 
+  // clear query history
   const handleClearHistory = async () => {
     await clearSearchHistory();
     setQueryHistory([]);
   };
 
+  // handle selected query history items
   const handleSelectHistoryItem = (term: string) => {
     setQuery(term);
   };
