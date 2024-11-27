@@ -95,8 +95,8 @@ const SearchScreen = () => {
         search={{query, setQuery}}
         value={query}
         onChangeText={setQuery}
+        onSubmit={handleSearch}
         style={{marginHorizontal: 10}}
-        onSubmitEditing={handleSearch}
       />
       <SearchHistory
         searchData={queryHistory}

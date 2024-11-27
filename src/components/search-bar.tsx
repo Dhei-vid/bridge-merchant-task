@@ -6,12 +6,10 @@ import {
   StyleProp,
   TextInput,
   TextInputProps,
-  Text,
+  Image,
 } from 'react-native';
 import {Dispatch, SetStateAction, FC} from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
-
-import SearchMeterIcon from '../assets/icons/search_meter.svg';
 
 interface ISearchBar {
   placeholder: string;
@@ -19,7 +17,7 @@ interface ISearchBar {
     query: string;
     setQuery: Dispatch<SetStateAction<string>>;
   };
-  style?: StyleProp<ViewStyle>;
+  onSubmit: (query: string) => void;
 }
 
 export type ISearchBarTypes = ISearchBar & TextInputProps;
@@ -28,9 +26,16 @@ const SearchBar: FC<ISearchBarTypes> = ({
   placeholder,
   search,
   style,
+  onSubmit,
   ...rest
 }) => {
   const {query, setQuery} = search;
+
+  const handleSearch = () => {
+    if (query.trim() !== '') {
+      onSubmit(query); // Call the function passed as a prop
+    }
+  };
 
   return (
     <View style={[styles.main, style]}>
@@ -52,10 +57,10 @@ const SearchBar: FC<ISearchBarTypes> = ({
           />
         </View>
 
-        <TouchableOpacity>
-          {/* <Text>Try me</Text> */}
-          {/* <SearchMeterIcon width={50} height={50} /> */}
-          {/* <Image source={SearchMeterIcon}> */}
+        <TouchableOpacity
+          onPress={handleSearch}
+          style={styles.mixIconContainer}>
+          <Image source={require('../assets/icons/meter.png')} />
         </TouchableOpacity>
       </View>
     </View>
@@ -97,7 +102,7 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderBottomWidth: 1,
     borderRightWidth: 1,
-    width: '70%',
+    width: '80%',
     color: '#FF882E70',
   },
   searchBtn: {
@@ -118,5 +123,22 @@ const styles = StyleSheet.create({
   searchMeterIcon: {
     width: 50,
     height: 50,
+  },
+  mixIconContainer: {
+    height: 51,
+    width: 51,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'white',
+    borderWidth: 1,
+    borderColor: '#EFEFEF',
+    borderRadius: 10,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
   },
 });
