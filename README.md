@@ -1,6 +1,6 @@
 # Bridge Merchant
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+>A mini-commerce task by BridgeMerchant
 
 ## Step 1: Clone Respository
 First, you will need to clone the repository to your local machine with the command 
